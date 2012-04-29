@@ -51,7 +51,8 @@ opt = OptionParser.new()
 opt.on('-a', '--allfunctions', 'Include all functions, even undocumented ones.') {show_private = true}
 opt.on('-r', '--recurse <DEPTH>', 'Descend into src directories.') {|v| search_depth = v} 
 opt.on('-p', '--private', 'Include symbols tagged as private, underscored and inner symbols.') {visible_private = true} 
-opt.on('-o', '--output <OUTPUT_DIR>', 'Output to this directory (defaults to "docs").') {|v| output = v} 
+opt.on('-o', '--output <OUTPUT_DIR>', 'Output to this directory (defaults to "docs").') {|v| output_dir = v} 
+opt.on('-i', '--input <INPUT_DIR>', 'Intput to this directory.') {|v| intput_dir = v} 
 opt.on('-g', '--goog', 'Output with basic class defind on Closure library') {visible_goog = true} 
 argv = opt.parse!(ARGV)
 
