@@ -52,7 +52,7 @@ opt.on('-a', '--allfunctions', 'Include all functions, even undocumented ones.')
 opt.on('-r', '--recurse <DEPTH>', 'Descend into src directories.') {|v| search_depth = v} 
 opt.on('-p', '--private', 'Include symbols tagged as private, underscored and inner symbols.') {visible_private = true} 
 opt.on('-o', '--output <OUTPUT_DIR>', 'Output to this directory (defaults to "docs").') {|v| output_dir = v} 
-opt.on('-i', '--input <INPUT_DIR>', 'Intput to this directory.') {|v| intput_dir = v} 
+opt.on('-i', '--input <INPUT_DIR>', 'Intput to this directory.') {|v| input_dir = v} 
 opt.on('-g', '--goog', 'Output with basic class defind on Closure library') {visible_goog = true} 
 argv = opt.parse!(ARGV)
 
@@ -83,6 +83,7 @@ cmd = [
 	'-D=lang:en',
 	"--template=#{TEMPLATE_DIR}",
 	"--directory=#{output_dir_abs}",
+	"--exclude=docs/.*",
 	show_private ? "--allfunctions" : "",
 	visible_private ? "--private" : "",
 	search_depth ? "--recurse=#{search_depth}" : "",
@@ -90,6 +91,7 @@ cmd = [
 	visible_goog ? js_list.join(" ") : ""
 ].join(" ")
 
+# Executes JsDoc and prints the result
 puts `#{cmd}`
 
 # Alert by Glowlnotify
