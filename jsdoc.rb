@@ -66,6 +66,7 @@ end
 
 # Add basic class in Closure library
 js_list = []
+js_list.push(CLOSURE_LIB_PATH + "/events/event.js")
 js_list.push(CLOSURE_LIB_PATH + "/events/eventtarget.js")
 js_list.push(CLOSURE_LIB_PATH + "/disposable/disposable.js")
 js_list.push(CLOSURE_LIB_PATH + "/disposable/idisposable.js")
